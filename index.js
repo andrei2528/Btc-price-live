@@ -13,7 +13,6 @@ async function pageReload() {
         const showPrice = document.getElementById("bitcoin");
         let response = await fetch('https://alpha-vantage.p.rapidapi.com/query?from_currency=BTC&function=CURRENCY_EXCHANGE_RATE&to_currency=USD', options);
         let data = await response.json();
-        console.log(data);
         let pastValue = parseInt(data["Realtime Currency Exchange Rate"]["8. Bid Price"], 10);
         showPrice.innerHTML = pastValue;
         if (current > pastValue) {
@@ -21,7 +20,6 @@ async function pageReload() {
         } else if (current == pastValue) {
             showPrice.style.color = 'grey';
         } else if (current < pastValue) {
-            console.log("current este " + current + ' pastValue este' + pastValue)
             showPrice.style.color = 'red';
         }
         current = pastValue;
