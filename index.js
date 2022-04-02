@@ -17,10 +17,13 @@ async function pageReload() {
         showPrice.innerHTML = pastValue;
         if (current > pastValue) {
             showPrice.style.color = 'green';
+            showPrice.innerHTML = pastValue + "↑";
         } else if (current == pastValue) {
             showPrice.style.color = 'grey';
         } else if (current < pastValue) {
+            showPrice.innerHTML = pastValue + "↓";
             showPrice.style.color = 'red';
+             
         }
         current = pastValue;
     } catch (e) {
